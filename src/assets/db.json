@@ -1,29 +1,25 @@
 {
-	"province": [
-		{
-			"Manabí": [
-				"Bolívar",
-				"Chone",
-				"El Carmen",
-				"Flavio Alfaro",
-				"Jama",
-				"Jaramijó",
-				"Jipijapa",
-				"Junín",
-				"Manta",
-				"Montecristi",
-				"Olmedo",
-				"Paján",
-				"Pedernales",
-				"Portoviejo",
-				"Puerto López",
-				"Rocafuerte",
-				"San Vicente",
-				"Santa Ana",
-				"Sucre",
-				"Tosagua",
-				"Veinticuatro de Mayo"
-			]
-		}
+	"cities": [
+		"Bolívar",
+		"Chone",
+		"El Carmen",
+		"Flavio Alfaro",
+		"Jama",
+		"Jaramijó",
+		"Jipijapa",
+		"Junín",
+		"Manta",
+		"Montecristi",
+		"Olmedo",
+		"Paján",
+		"Pedernales",
+		"Portoviejo",
+		"Puerto López",
+		"Rocafuerte",
+		"San Vicente",
+		"Santa Ana",
+		"Sucre",
+		"Tosagua",
+		"Veinticuatro de Mayo"
 	]
 }
