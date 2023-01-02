@@ -42,7 +42,9 @@ const mountComponent = async (e) => {
 	console.log(weather.coord);
 	// -> lat, lon
 	console.log(weather.main);
-	//feels like,  humidity, pressure, sea_level, temp(max-min)
+	//feels like,  humidity,
+	//pressure, sea_level,
+	//temp, temp(max-min)
 	console.log(weather.weather);
 	//main, description(ex: broken clouds)
 	console.log(weather.sys);

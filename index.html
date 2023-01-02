@@ -5,26 +5,115 @@
 		<title>Weather App</title>
 		<link rel="shortcut icon" href="./src/assets/cloud-fog.svg" type="image/x-icon" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
+			href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600&display=swap"
 			rel="stylesheet"
-			href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
 		/>
 		<link rel="stylesheet" href="./src/style.css" />
 	</head>
 	<body>
-		<main></main>
-		<h1>Weather App</h1>
-		<section>
-			<form id="form-cities">
-				<small>Selecciona una ciudad de Manabí para ver cómo está el clima hoy</small>
-			</form>
-			<table>
-				<thead>
-					<tr></tr>
-				</thead>
-				<tbody></tbody>
-			</table>
-		</section>
+		<main>
+			<h1>Weather App</h1>
+			<section>
+				<form id="form-cities" class="form">
+					<small>Selecciona una ciudad de Manabí para ver cómo está el clima hoy</small>
+				</form>
+				<article id="weather-description" class="weather-data">
+					<div class="weather-data-content">
+						<h5>Latitud</h5>
+						<div class="weather-data-details">
+							<small>-111</small>
+						</div>
+					</div>
+
+					<div class="weather-data-content">
+						<h5>Longitud</h5>
+						<div class="weather-data-details">
+							<small>-111</small>
+						</div>
+					</div>
+
+					<div class="weather-data-content">
+						<h5>Estado</h5>
+						<div class="weather-data-details">
+							<small>Nublado</small>
+						</div>
+					</div>
+
+					<div class="weather-data-content">
+						<h5>Sensación</h5>
+						<div class="weather-data-details">
+							<small>none</small>
+						</div>
+					</div>
+
+					<div class="weather-data-content">
+						<h5>Humedad</h5>
+						<div class="weather-data-details">
+							<small>%</small>
+						</div>
+					</div>
+
+					<div class="weather-data-content">
+						<h5>Presión</h5>
+						<div class="weather-data-details">
+							<small>%</small>
+						</div>
+					</div>
+
+					<div class="weather-data-content">
+						<h5>Nivel de aire</h5>
+						<div class="weather-data-details">
+							<small>%</small>
+						</div>
+					</div>
+
+					<div class="weather-data-content">
+						<h5>Temperatura</h5>
+						<div class="weather-data-details">
+							<small>5°</small>
+						</div>
+					</div>
+
+					<div class="weather-data-content">
+						<h5>Temperatura mín.</h5>
+						<div class="weather-data-details">
+							<small>5°</small>
+						</div>
+					</div>
+
+					<div class="weather-data-content">
+						<h5>Temperatura máx.</h5>
+						<div class="weather-data-details">
+							<small>5°</small>
+						</div>
+					</div>
+
+					<div class="weather-data-content">
+						<h5>Amanecer</h5>
+						<div class="weather-data-details">
+							<small>17:00</small>
+						</div>
+					</div>
+
+					<div class="weather-data-content">
+						<h5>Atardecer</h5>
+						<div class="weather-data-details">
+							<small>17:00</small>
+						</div>
+					</div>
+
+					<div class="weather-data-content">
+						<h5>Velocidad del viento</h5>
+						<div class="weather-data-details">
+							<small>125km/h</small>
+						</div>
+					</div>
+				</article>
+			</section>
+		</main>
 		<script src="./src/index.js"></script>
 	</body>
 </html>
