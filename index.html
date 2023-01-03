@@ -18,97 +18,100 @@
 			<h1>Weather App</h1>
 			<section>
 				<form id="form-cities" class="form">
-					<small>Selecciona una ciudad de Manabí para ver cómo está el clima hoy</small>
+					<small class="weather-advice"
+						>Para ver el clima necesitas activar tu ubicación.</small
+					>
+					<small id="error-details" class="error-details">error</small>
 				</form>
 				<article id="weather-description" class="weather-data">
 					<div class="weather-data-content">
 						<h5>Latitud</h5>
 						<div class="weather-data-details">
-							<small>-111</small>
+							<small id="lat">--</small>
 						</div>
 					</div>
 
 					<div class="weather-data-content">
 						<h5>Longitud</h5>
 						<div class="weather-data-details">
-							<small>-111</small>
+							<small id="lon">--</small>
 						</div>
 					</div>
 
 					<div class="weather-data-content">
-						<h5>Estado</h5>
+						<h5>Cielo</h5>
 						<div class="weather-data-details">
-							<small>Nublado</small>
+							<small id="sky">--</small>
 						</div>
 					</div>
 
 					<div class="weather-data-content">
 						<h5>Sensación</h5>
 						<div class="weather-data-details">
-							<small>none</small>
+							<small id="feelsLike">--</small>
 						</div>
 					</div>
 
 					<div class="weather-data-content">
 						<h5>Humedad</h5>
 						<div class="weather-data-details">
-							<small>%</small>
+							<small id="humidity">--</small>
 						</div>
 					</div>
 
 					<div class="weather-data-content">
 						<h5>Presión</h5>
 						<div class="weather-data-details">
-							<small>%</small>
+							<small id="pressure">--</small>
 						</div>
 					</div>
 
 					<div class="weather-data-content">
-						<h5>Nivel de aire</h5>
+						<h5>Nivel del mar</h5>
 						<div class="weather-data-details">
-							<small>%</small>
+							<small id="sea-level">--</small>
 						</div>
 					</div>
 
 					<div class="weather-data-content">
 						<h5>Temperatura</h5>
 						<div class="weather-data-details">
-							<small>5°</small>
+							<small id="temperature">--</small>
 						</div>
 					</div>
 
 					<div class="weather-data-content">
 						<h5>Temperatura mín.</h5>
 						<div class="weather-data-details">
-							<small>5°</small>
+							<small id="min-temperature">--</small>
 						</div>
 					</div>
 
 					<div class="weather-data-content">
 						<h5>Temperatura máx.</h5>
 						<div class="weather-data-details">
-							<small>5°</small>
+							<small id="max-temperature">--</small>
 						</div>
 					</div>
 
 					<div class="weather-data-content">
 						<h5>Amanecer</h5>
 						<div class="weather-data-details">
-							<small>17:00</small>
+							<small id="sunrise">--</small>
 						</div>
 					</div>
 
 					<div class="weather-data-content">
 						<h5>Atardecer</h5>
 						<div class="weather-data-details">
-							<small>17:00</small>
+							<small id="sunset">--</small>
 						</div>
 					</div>
 
 					<div class="weather-data-content">
 						<h5>Velocidad del viento</h5>
 						<div class="weather-data-details">
-							<small>125km/h</small>
+							<small id="wind-speed">--</small>
 						</div>
 					</div>
 				</article>

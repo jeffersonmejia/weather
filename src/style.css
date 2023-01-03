@@ -24,6 +24,7 @@ body {
 	background-color: var(--main-bg);
 	color: var(--main-fg);
 }
+
 main {
 	width: 80%;
 	margin: auto;
@@ -37,12 +38,23 @@ select {
 	margin: 12px 0;
 	padding: 0 12px;
 }
-.form {
-	display: flex;
-	flex-direction: column;
+.weather-advice {
+	margin: 4px 0;
+	margin-bottom: 12px;
 }
-
+small {
+	width: 100%;
+	display: block;
+}
+.error-details {
+	display: none;
+	margin: 4px 0;
+}
+.error-active {
+	display: block;
+}
 .weather-data {
+	margin-top: 12px;
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
 	gap: 8px;
@@ -58,4 +70,8 @@ select {
 }
 .weather-data-content:last-child {
 	grid-column: 1/-1;
+}
+
+.weather-data-content small {
+	margin: 1px 0;
 }
