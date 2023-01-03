@@ -1,5 +1,11 @@
+import WEATHER_KEY from "./components/keys.js";
+
 const d = document,
 	n = navigator,
+	$loader = d.getElementById("loader"),
+	$appTitle = d.getElementById("app-title"),
+	$weatherData = d.getElementById("weather-data"),
+	$weatherAdvice = d.getElementById("weather-advice"),
 	$error = d.getElementById("error-details"),
 	$lat = d.getElementById("lat"),
 	$lon = d.getElementById("lon"),
@@ -15,33 +21,11 @@ const d = document,
 	$sunset = d.getElementById("sunset"),
 	$windSpeed = d.getElementById("wind-speed");
 
-let lat = -1.0477487,
-	lon = -80.5372243,
-	key = "7ef54c9134170dce32fcaaecdcd58931";
-console.log(lat, lon);
-const getLocation = async () => {
-	const options = {
-		enableHighAccuracy: true,
-		timeout: 1000,
-		maximumAge: 0,
-	};
-	const success = async (pos) => {
-		console.log(pos);
-		lat = await pos.coords.latitude;
-		lon = await pos.coords.longitude;
-	};
-	const error = (error) => {
-		$error.classList.add("error-active");
-		$error.innerHTML = "Lo sentimos... no se encontraron datos de la localización.";
-	};
-	n.geolocation.getCurrentPosition(success, error, options);
-};
-
-const getWeather = async () => {
-	const API = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=7ef54c9134170dce32fcaaecdcd58931`;
+const getWeather = async (lat, lon) => {
 	try {
-		const res = await fetch(API);
-		json = await res.json();
+		const API = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${WEATHER_KEY}`;
+		const res = await fetch(API),
+			json = await res.json();
 		if (!res.ok) throw { status: res.status };
 		return json;
 	} catch (error) {
@@ -50,22 +34,40 @@ const getWeather = async () => {
 };
 
 const loadWeather = async (e) => {
-	getLocation();
-	let weather = await getWeather();
-	console.log(lat, lon);
-	$lat.innerHTML = lat;
-	$lon.innerHTML = lon;
-	$sky.innerHTML = weather.weather[0].main;
-	$feelsLike.innerHTML = weather.main.feels_like;
-	$humidity.innerHTML = weather.main.humidity;
-	$pressure.innerHTML = weather.main.pressure;
-	$seaLevel.innerHTML = weather.main.sea_level;
-	$temperature.innerHTML = weather.main.temp;
-	$minTemperature.innerHTML = weather.main.temp_max;
-	$maxTemperature.innerHTML = weather.main.temp_min;
-	$sunrise.innerHTML = weather.sys.sunrise;
-	$sunset.innerHTML = weather.sys.sunset;
-	$windSpeed.innerHTML = weather.wind.speed;
+	const getUserPosition = async (pos) => {
+		let lat, lon;
+		lat = pos.coords.latitude;
+		lon = pos.coords.longitude;
+		let weather = await getWeather(lat, lon);
+
+		$loader.classList.add("disabled");
+		$appTitle.textContent = "Portoviejo";
+		$appTitle.classList.add("current-city");
+		$weatherAdvice.classList.add("disabled");
+		$weatherData.classList.remove("disabled");
+		$lat.innerHTML = lat;
+		$lon.innerHTML = lon;
+		$sky.innerHTML = weather.weather[0].main;
+		$feelsLike.innerHTML = weather.main.feels_like;
+		$humidity.innerHTML = weather.main.humidity;
+		$pressure.innerHTML = weather.main.pressure;
+		$seaLevel.innerHTML = weather.main.sea_level;
+		$temperature.innerHTML = weather.main.temp;
+		$minTemperature.innerHTML = weather.main.temp_max;
+		$maxTemperature.innerHTML = weather.main.temp_min;
+		$sunrise.innerHTML = weather.sys.sunrise;
+		$sunset.innerHTML = weather.sys.sunset;
+		$windSpeed.innerHTML = weather.wind.speed;
+	};
+	const handleErrors = (error) => {
+		$loader.classList.add("disabled");
+		$weatherAdvice.textContent = `Ha ocurrido un error, ${
+			error.message.match("permission")
+				? "habilita la ubicación y vuelve a intentarlo"
+				: "vuelve más tarde."
+		}.`;
+	};
+	navigator.geolocation.getCurrentPosition(getUserPosition, handleErrors);
 };
 
 d.addEventListener("DOMContentLoaded", loadWeather);

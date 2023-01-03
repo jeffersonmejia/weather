@@ -15,15 +15,15 @@
 	</head>
 	<body>
 		<main>
-			<h1>Weather App</h1>
+			<h1 id="app-title">Weather App</h1>
 			<section>
 				<form id="form-cities" class="form">
-					<small class="weather-advice"
-						>Para ver el clima necesitas activar tu ubicación.</small
+					<small class="weather-advice" id="weather-advice"
+						>Para ver el clima necesitas activar tu <u>ubicación</u>.</small
 					>
 					<small id="error-details" class="error-details">error</small>
 				</form>
-				<article id="weather-description" class="weather-data">
+				<article id="weather-data" class="weather-data disabled">
 					<div class="weather-data-content">
 						<h5>Latitud</h5>
 						<div class="weather-data-details">
@@ -116,7 +116,13 @@
 					</div>
 				</article>
 			</section>
+			<figure class="loader" id="loader">
+				<img src="./src/assets/rings.svg" alt="loader" />
+				<figcaption>
+					<small>Obtenido tu dirección actual... Esto puede tomar unos segundos</small>
+				</figcaption>
+			</figure>
 		</main>
-		<script src="./src/index.js"></script>
+		<script src="./src/index.js" type="module"></script>
 	</body>
 </html>
