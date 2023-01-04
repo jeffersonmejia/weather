@@ -24,7 +24,8 @@ const d = document,
 
 const getWeather = async (lat, lon) => {
 	try {
-		const API = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${WEATHER_KEY}`;
+		let units = "metric";
+		const API = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=${units}&appid=${WEATHER_KEY}`;
 		const res = await fetch(API),
 			json = await res.json();
 		if (!res.ok) throw { status: res.status };
