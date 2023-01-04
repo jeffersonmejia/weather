@@ -42,7 +42,31 @@ select {
 h1 {
 	transition: padding 0.3s linear;
 }
-
+.clouds-bg {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 998;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+}
+.clouds-bg img {
+	max-width: 300px;
+	animation: clouds 30s linear infinite;
+}
+@keyframes clouds {
+	0% {
+		transform: translateX(0%);
+	}
+	50% {
+		transform: translateX(100%);
+	}
+	100% {
+		transform: translateX(0%);
+	}
+}
 .current-city {
 	text-align: center;
 	padding: 12px 0;
