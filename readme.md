@@ -20,7 +20,7 @@
 
 ---
 
-mobile, table, desktop here!
+[![main.png](https://i.postimg.cc/tCGKM1HS/main.png)](https://postimg.cc/mhVpcgkC)
 
 ### **Features**
 
