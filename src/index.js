@@ -41,7 +41,7 @@ const loadWeather = async (e) => {
 		let weather = await getWeather(lat, lon);
 
 		$loader.classList.add("disabled");
-		$appTitle.textContent = "Portoviejo";
+		$appTitle.textContent = "Portoviejo 🌉";
 		$appTitle.classList.add("current-city");
 		$weatherAdvice.classList.add("disabled");
 		$weatherData.classList.remove("disabled");
