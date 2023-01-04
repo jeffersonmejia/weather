@@ -42,6 +42,7 @@ select {
 h1 {
 	transition: padding 0.3s linear;
 }
+
 .current-city {
 	text-align: center;
 	padding: 12px 0;
