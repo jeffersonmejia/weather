@@ -34,7 +34,7 @@ const changeSky = () => {
 	if (hours > 6 && hours < 12) {
 		$body.classList.add("morning-bg");
 		$audioBG.src = "./src/assets/morning-audio.mp3";
-		$audioBG.autoplay = true;
+		$audioBG.play();
 		$audioBG.loop = true;
 
 		$weatherBoxes.forEach((el) => el.classList.add("morning-box-bg"));
@@ -83,7 +83,7 @@ const loadWeather = async (e) => {
 			weather.weather[0].main === "Clouds" ? "Nublado" : "Despejado";
 
 		$loader.classList.add("disabled");
-		$appTitle.textContent = `${weather.name} ☁️`;
+		$appTitle.textContent = `${weather.name} ☁️ -> ${n.oscpu}`;
 		$appTitle.classList.add("current-city");
 		$weatherAdvice.classList.add("disabled");
 		$weatherData.classList.remove("disabled");
