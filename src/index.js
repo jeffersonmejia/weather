@@ -1,6 +1,5 @@
 import WEATHER_KEY from "./helpers/keys.js";
 import unixConverter from "./helpers/unix_converter.js";
-
 const d = document,
 	n = navigator,
 	$loader = d.getElementById("loader"),

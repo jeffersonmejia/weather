@@ -110,7 +110,7 @@ small {
 .weather-data-content {
 	display: flex;
 	flex-direction: column;
-	padding: 8px 16px;
+	padding: 8px;
 	opacity: 1;
 	transition: padding 0.3s linear;
 	background-color: var(--main-box-bg);
