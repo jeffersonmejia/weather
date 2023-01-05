@@ -83,7 +83,7 @@ const loadWeather = async (e) => {
 			weather.weather[0].main === "Clouds" ? "Nublado" : "Despejado";
 
 		$loader.classList.add("disabled");
-		$appTitle.textContent = `${weather.name} ☁️ -> ${n.oscpu}`;
+		$appTitle.textContent = `${weather.name} ☁️`;
 		$appTitle.classList.add("current-city");
 		$weatherAdvice.classList.add("disabled");
 		$weatherData.classList.remove("disabled");
@@ -113,3 +113,13 @@ const loadWeather = async (e) => {
 };
 
 d.addEventListener("DOMContentLoaded", loadWeather);
+d.addEventListener(
+	"touchstart,",
+	(e) => {
+		$audioBG.play;
+		$audioBG.pause;
+		$audioBG.currentTime = 0;
+		$audioBG.play();
+	},
+	false
+);
