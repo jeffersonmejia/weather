@@ -120,6 +120,8 @@ d.addEventListener(
 		$audioBG.pause();
 		$audioBG.currentTime = 0;
 		$audioBG.play();
+		$audioBG.load();
+		$audioBG.play();
 	},
 	false
 );
