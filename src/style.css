@@ -2,6 +2,16 @@
 	--main-bg: hsl(207, 100%, 50%);
 	--main-fg: white;
 	--main-box-bg: hsl(207, 100%, 60%);
+
+	--morning-bg: hsl(207, 94%, 67%);
+	--morning-box-bg: hsl(207, 94%, 77%);
+	--midday-bg: hsl(207, 100%, 50%);
+	--midday-box-bg: hsl(207, 100%, 60%);
+	--afternoon-bg: hsl(34, 100%, 50%);
+	--afternoon-box-bg: hsl(34, 100%, 60%);
+	--night-bg: hsl(207, 97%, 13%);
+	--night-box-bg: hsl(207, 97%, 23%);
+
 	--max-box-size: 700px;
 	--main-font: "nunito", sans-serif;
 	--border-radius: 12px;
@@ -21,7 +31,6 @@ body {
 	display: flex;
 	align-items: center;
 	font-family: var(--main-font);
-	background-color: var(--main-bg);
 	color: var(--main-fg);
 }
 
@@ -113,7 +122,6 @@ small {
 	padding: 8px;
 	opacity: 1;
 	transition: padding 0.3s linear;
-	background-color: var(--main-box-bg);
 	border-radius: var(--border-radius);
 }
 .weather-data-content:last-child {
@@ -127,6 +135,32 @@ small {
 .disabled {
 	display: none;
 }
+
+.morning-bg {
+	background-color: var(--morning-bg);
+}
+.morning-box-bg {
+	background-color: var(--morning-box-bg);
+}
+.midday-bg {
+	background-color: var(--midday-bg);
+}
+.midday-box-bg {
+	background-color: var(--midday-box-bg);
+}
+.afternoon-bg {
+	background-color: var(--afternoon-bg);
+}
+.afternoon-box-bg {
+	background-color: var(--afternoon-box-bg);
+}
+.night-bg {
+	background-color: var(--night-bg);
+}
+.night-box-bg {
+	background-color: var(--night-box-bg);
+}
+
 @media screen and (min-width: 1080px) and (min-height: 800px) {
 	.weather-data {
 		grid-template-columns: repeat(3, 1fr);

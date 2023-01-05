@@ -1,12 +1,12 @@
 import WEATHER_KEY from "./helpers/keys.js";
 import unixConverter from "./helpers/unix_converter.js";
+
 const d = document,
 	n = navigator,
 	$loader = d.getElementById("loader"),
 	$appTitle = d.getElementById("app-title"),
 	$weatherData = d.getElementById("weather-data"),
 	$weatherAdvice = d.getElementById("weather-advice"),
-	$error = d.getElementById("error-details"),
 	$lat = d.getElementById("lat"),
 	$lon = d.getElementById("lon"),
 	$sky = d.getElementById("sky"),
@@ -19,7 +19,41 @@ const d = document,
 	$maxTemperature = d.getElementById("max-temperature"),
 	$sunrise = d.getElementById("sunrise"),
 	$sunset = d.getElementById("sunset"),
-	$windSpeed = d.getElementById("wind-speed");
+	$windSpeed = d.getElementById("wind-speed"),
+	$body = d.getElementsByTagName("body")[0],
+	$weatherBoxes = d.querySelectorAll(".weather-data-content"),
+	$skyBG = d.querySelectorAll(".clouds-bg img"),
+	$audioBG = d.getElementById("audio-bg");
+
+const changeSky = () => {
+	const date = new Date(),
+		hours = date.getHours();
+	if (hours > 6 || hours < 19) {
+		$skyBG.forEach((el) => (el.src = "./src/assets/cloud.png"));
+	}
+	if (hours > 6 && hours < 12) {
+		$body.classList.add("morning-bg");
+		$weatherBoxes.forEach((el) => el.classList.add("morning-box-bg"));
+	}
+	if (hours > 12 && hours < 18) {
+		$body.classList.add("midday-bg");
+		$weatherBoxes.forEach((el) => el.classList.add("midday-box-bg"));
+	}
+	if (hours > 18 && hours < 19) {
+		$body.classList.add("afternoon-bg");
+		$weatherBoxes.forEach((el) => el.classList.add("afternoon-box-bg"));
+	}
+	if (hours > 19) {
+		$audioBG.src = "./src/assets/night-audio.mp3";
+		$audioBG.autoplay = true;
+		$audioBG.loop = true;
+
+		$skyBG.forEach((el) => (el.src = ""));
+		$body.classList.add("night-bg");
+		$weatherBoxes.forEach((el) => el.classList.add("night-box-bg"));
+	}
+};
+changeSky();
 
 const getWeather = async (lat, lon) => {
 	try {
