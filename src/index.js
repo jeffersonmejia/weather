@@ -116,8 +116,8 @@ d.addEventListener("DOMContentLoaded", loadWeather);
 d.addEventListener(
 	"touchstart,",
 	(e) => {
-		$audioBG.play;
-		$audioBG.pause;
+		$audioBG.play();
+		$audioBG.pause();
 		$audioBG.currentTime = 0;
 		$audioBG.play();
 	},
