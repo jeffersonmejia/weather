@@ -29,6 +29,7 @@ img {
 body {
 	min-height: 100vh;
 	display: flex;
+	flex-direction: column;
 	align-items: center;
 	font-family: var(--main-font);
 	color: var(--main-fg);
@@ -161,6 +162,15 @@ small {
 	background-color: var(--night-box-bg);
 }
 
+footer {
+	display: none;
+	text-align: center;
+	padding: 16px;
+	transition: padding 0.3s linear;
+}
+.footer-active {
+	display: block;
+}
 @media screen and (min-width: 1080px) and (min-height: 800px) {
 	.weather-data {
 		grid-template-columns: repeat(3, 1fr);

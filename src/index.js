@@ -23,7 +23,8 @@ const d = document,
 	$body = d.getElementsByTagName("body")[0],
 	$weatherBoxes = d.querySelectorAll(".weather-data-content"),
 	$skyBG = d.querySelectorAll(".clouds-bg img"),
-	$audioBG = d.getElementById("audio-bg");
+	$audioBG = d.getElementById("audio-bg"),
+	$footer = d.getElementById("footer");
 
 const changeSky = () => {
 	const date = new Date(),
@@ -87,8 +88,6 @@ const loadWeather = async (e) => {
 		$appTitle.classList.add("current-city");
 		$weatherAdvice.classList.add("disabled");
 		$weatherData.classList.remove("disabled");
-		$lat.innerHTML = lat;
-		$lon.innerHTML = lon;
 		$sky.innerHTML = weather.weather[0].main;
 		$feelsLike.innerHTML = `${weather.main.feels_like}°`;
 		$humidity.innerHTML = `${weather.main.humidity}%`;
@@ -100,6 +99,7 @@ const loadWeather = async (e) => {
 		$sunrise.innerHTML = weather.sys.sunrise;
 		$sunset.innerHTML = weather.sys.sunset;
 		$windSpeed.innerHTML = `${weather.wind.speed} mph`;
+		$footer.classList.add("footer-active");
 	};
 	const handleErrors = (error) => {
 		$loader.classList.add("disabled");
