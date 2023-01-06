@@ -29,7 +29,6 @@ const d = document,
 const changeSky = () => {
 	const date = new Date(),
 		hours = date.getHours();
-	$skyBG.forEach((el) => (el.src = "./src/assets/cloud.png"));
 	if (hours > 6 && hours < 12) {
 		$body.classList.add("morning-bg");
 		$audioBG.src = "./src/assets/morning-audio.mp3";
@@ -54,7 +53,6 @@ const changeSky = () => {
 		$weatherBoxes.forEach((el) => el.classList.add("night-box-bg"));
 	}
 };
-changeSky();
 
 const getWeather = async (lat, lon) => {
 	try {
@@ -97,6 +95,7 @@ const loadWeather = async (e) => {
 		$sunset.innerHTML = weather.sys.sunset;
 		$windSpeed.innerHTML = `${weather.wind.speed} mph`;
 		$footer.classList.add("footer-active");
+		$skyBG.forEach((el) => (el.src = "./src/assets/cloud.png"));
 	};
 	const handleErrors = (error) => {
 		$loader.classList.add("disabled");
@@ -122,3 +121,6 @@ d.addEventListener(
 	},
 	false
 );
+d.addEventListener("DOMContentLoaded", (e) => {
+	changeSky();
+});

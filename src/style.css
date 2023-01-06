@@ -63,7 +63,7 @@ h1 {
 }
 .clouds-bg img {
 	max-width: 300px;
-	animation: clouds 30s linear infinite;
+	animation: clouds 60s linear infinite;
 }
 @keyframes clouds {
 	0% {
