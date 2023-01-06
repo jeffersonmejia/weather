@@ -31,6 +31,7 @@ body {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	justify-content: center;
 	font-family: var(--main-font);
 	color: var(--main-fg);
 }
@@ -38,7 +39,6 @@ body {
 main {
 	width: 80%;
 	max-width: 700px;
-	margin: auto;
 }
 select {
 	border: none;
@@ -64,27 +64,6 @@ h1 {
 .clouds-bg img {
 	max-width: 300px;
 	animation: clouds 30s linear infinite;
-}
-.sun-bg {
-	width: 100%;
-	position: fixed;
-	top: 0vh;
-	left: 80vw;
-	right: 0vw;
-	z-index: -1;
-}
-
-.sun-bg img {
-	width: 120px;
-	animation: rotate 40s linear infinite;
-}
-@keyframes rotate {
-	0% {
-		transform: rotate(360deg);
-	}
-	100% {
-		transform: rotate(0deg);
-	}
 }
 @keyframes clouds {
 	0% {

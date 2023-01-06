@@ -24,16 +24,12 @@ const d = document,
 	$weatherBoxes = d.querySelectorAll(".weather-data-content"),
 	$skyBG = d.querySelectorAll(".clouds-bg img"),
 	$audioBG = d.getElementById("audio-bg"),
-	$sun = d.querySelector(".sun-bg"),
 	$footer = d.getElementById("footer");
 
 const changeSky = () => {
 	const date = new Date(),
 		hours = date.getHours();
 	$skyBG.forEach((el) => (el.src = "./src/assets/cloud.png"));
-	if (hours > 6 || hours < 12) {
-		$sun.classList.remove("disabled");
-	}
 	if (hours > 6 && hours < 12) {
 		$body.classList.add("morning-bg");
 		$audioBG.src = "./src/assets/morning-audio.mp3";
