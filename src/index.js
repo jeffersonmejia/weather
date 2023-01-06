@@ -24,13 +24,15 @@ const d = document,
 	$weatherBoxes = d.querySelectorAll(".weather-data-content"),
 	$skyBG = d.querySelectorAll(".clouds-bg img"),
 	$audioBG = d.getElementById("audio-bg"),
+	$sun = d.querySelector(".sun-bg"),
 	$footer = d.getElementById("footer");
 
 const changeSky = () => {
 	const date = new Date(),
 		hours = date.getHours();
-	if (hours > 6 || hours < 19) {
-		$skyBG.forEach((el) => (el.src = "./src/assets/cloud.png"));
+	$skyBG.forEach((el) => (el.src = "./src/assets/cloud.png"));
+	if (hours > 6 || hours < 12) {
+		$sun.classList.remove("disabled");
 	}
 	if (hours > 6 && hours < 12) {
 		$body.classList.add("morning-bg");
@@ -49,7 +51,6 @@ const changeSky = () => {
 		$weatherBoxes.forEach((el) => el.classList.add("afternoon-box-bg"));
 	}
 	if (hours > 19) {
-		$skyBG.forEach((el) => (el.src = ""));
 		$body.classList.add("night-bg");
 		$audioBG.src = "./src/assets/night-audio.mp3";
 		$audioBG.autoplay = true;
@@ -84,7 +85,7 @@ const loadWeather = async (e) => {
 			weather.weather[0].main === "Clouds" ? "Nublado" : "Despejado";
 
 		$loader.classList.add("disabled");
-		$appTitle.textContent = `${weather.name} ☁️`;
+		$appTitle.textContent = `${weather.name} ${Math.round(weather.main.temp)}°`;
 		$appTitle.classList.add("current-city");
 		$weatherAdvice.classList.add("disabled");
 		$weatherData.classList.remove("disabled");

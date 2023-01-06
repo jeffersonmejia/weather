@@ -9,8 +9,8 @@
 	--midday-box-bg: hsl(207, 100%, 60%);
 	--afternoon-bg: hsl(34, 100%, 50%);
 	--afternoon-box-bg: hsl(34, 100%, 60%);
-	--night-bg: hsl(207, 97%, 13%);
-	--night-box-bg: hsl(207, 97%, 23%);
+	--night-bg: hsl(207, 97%, 0%);
+	--night-box-bg: hsl(207, 97%, 10%);
 
 	--max-box-size: 700px;
 	--main-font: "nunito", sans-serif;
@@ -58,13 +58,33 @@ h1 {
 	left: 0;
 	right: 0;
 	bottom: 0;
-	z-index: 998;
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 }
 .clouds-bg img {
 	max-width: 300px;
 	animation: clouds 30s linear infinite;
+}
+.sun-bg {
+	width: 100%;
+	position: fixed;
+	top: 0vh;
+	left: 80vw;
+	right: 0vw;
+	z-index: -1;
+}
+
+.sun-bg img {
+	width: 120px;
+	animation: rotate 40s linear infinite;
+}
+@keyframes rotate {
+	0% {
+		transform: rotate(360deg);
+	}
+	100% {
+		transform: rotate(0deg);
+	}
 }
 @keyframes clouds {
 	0% {
