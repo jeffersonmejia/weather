@@ -1,6 +1,5 @@
 import WEATHER_KEY from "./helpers/keys.js";
 import unixConverter from "./helpers/unix_converter.js";
-
 const d = document,
 	n = navigator,
 	$loader = d.getElementById("loader"),
@@ -34,10 +33,9 @@ const changeSky = () => {
 		$audioBG.src = "./src/assets/morning-audio.mp3";
 		$audioBG.play();
 		$audioBG.loop = true;
-
 		$weatherBoxes.forEach((el) => el.classList.add("morning-box-bg"));
 	}
-	if (hours > 12 && hours < 18) {
+	if (hours >= 12 && hours < 18) {
 		$body.classList.add("midday-bg");
 		$weatherBoxes.forEach((el) => el.classList.add("midday-box-bg"));
 	}

@@ -31,6 +31,7 @@ body {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	justify-content: center;
 	font-family: var(--main-font);
 	color: var(--main-fg);
 }
