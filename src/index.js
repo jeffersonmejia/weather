@@ -23,11 +23,25 @@ const d = document,
 	$weatherBoxes = d.querySelectorAll(".weather-data-content"),
 	$skyBG = d.querySelectorAll(".clouds-bg img"),
 	$audioBG = d.getElementById("audio-bg"),
-	$footer = d.getElementById("footer");
+	$footer = d.getElementById("footer"),
+	$main = d.getElementById("main-layout"),
+	$cloudContainer = d.createElement("div");
+let MAX_CLOUDS = 9;
+
+const loadClouds = () => {
+	for (let i = 0; i < MAX_CLOUDS; i++) {
+		let $clouds = d.createElement("img");
+		$clouds.src = "./src/assets/cloud.png";
+		$cloudContainer.appendChild($clouds);
+	}
+	$cloudContainer.classList.add("clouds-bg");
+	$main.appendChild($cloudContainer);
+};
 
 const changeSky = () => {
 	const date = new Date(),
 		hours = date.getHours();
+
 	if (hours > 6 && hours < 12) {
 		$body.classList.add("morning-bg");
 		$audioBG.src = "./src/assets/morning-audio.mp3";
@@ -71,6 +85,7 @@ const loadWeather = async (e) => {
 		lat = pos.coords.latitude;
 		lon = pos.coords.longitude;
 		let weather = await getWeather(lat, lon);
+		loadClouds();
 		weather.sys.sunrise = unixConverter(weather.sys.sunrise);
 		weather.sys.sunset = unixConverter(weather.sys.sunset);
 		weather.weather[0].main =
