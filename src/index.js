@@ -165,15 +165,15 @@ d.addEventListener("click", (e) => {
 	if (e.target.matches("#feedback-btn") || e.target.matches("#feedback-btn *")) {
 		if (!isModalActive) {
 			$modalFeedback.classList.add("feedback-container-active");
+			$feedBtn.classList.add("btn-back");
 			setTimeout(() => {
-				$feedBtn.classList.add("btn-back");
 				$feedBtn.textContent = "arrow_back";
 			}, 700);
 			isModalActive = true;
 		} else {
+			$feedBtn.classList.remove("btn-back");
 			$modalFeedback.classList.remove("feedback-container-active");
 			setTimeout(() => {
-				$feedBtn.classList.remove("btn-back");
 				$feedBtn.textContent = "chat";
 			}, 700);
 			isModalActive = false;
