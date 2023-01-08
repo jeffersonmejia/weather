@@ -4,7 +4,10 @@
 		<meta charset="UTF-8" />
 		<title>Weather App</title>
 		<link rel="shortcut icon" href="./src/assets/cloud-fog.svg" type="image/x-icon" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0,maximum-scale=1"
+		/>
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
@@ -171,8 +174,26 @@
 				<small><b>© 2023 Jefferson Mejía</b></small>
 			</footer>
 			<audio hidden id="audio-bg"></audio>
+			<span class="material-symbols-outlined btn btn-fixed btn-rounded" id="feedback-btn">
+				<small>chat</small>
+			</span>
 		</main>
-
+		<div class="feedback-container">
+			<form class="feedback-content">
+				<h2>Feedback</h2>
+				<input type="text" placeholder="Nombre" />
+				<input type="text" placeholder="Apellido" />
+				<small>Describe brevemente tu opinión</small>
+				<textarea
+					name=""
+					id=""
+					cols="30"
+					rows="6"
+					placeholder="Escribe un mensaje..."
+				></textarea>
+				<button class="btn" id="send-btn">Enviar</button>
+			</form>
+		</div>
 		<script src="./src/index.js" type="module"></script>
 	</body>
 </html>

@@ -7,8 +7,6 @@ const d = document,
 	$appTitle = d.getElementById("app-title"),
 	$weatherData = d.getElementById("weather-data"),
 	$weatherAdvice = d.getElementById("weather-advice"),
-	$lat = d.getElementById("lat"),
-	$lon = d.getElementById("lon"),
 	$sky = d.getElementById("sky"),
 	$feelsLike = d.getElementById("feelsLike"),
 	$humidity = d.getElementById("humidity"),
@@ -26,10 +24,13 @@ const d = document,
 	$audioBG = d.getElementById("audio-bg"),
 	$footer = d.getElementById("footer"),
 	$main = d.getElementById("main-layout"),
-	$cloudContainer = d.createElement("div");
+	$cloudContainer = d.createElement("div"),
+	$feedBtn = d.getElementById("feedback-btn"),
+	$modalFeedback = d.querySelector(".feedback-container");
 
 let MAX_CLOUDS = 9,
-	isOffline = false;
+	isOffline = false,
+	isModalActive = false;
 
 const loadClouds = () => {
 	for (let i = 0; i < MAX_CLOUDS; i++) {
@@ -146,7 +147,7 @@ w.addEventListener("offline", (e) => {
 	$appTitle.classList.remove("current-city");
 	$appTitle.textContent = `Weather App`;
 	console.log($weatherAdvice.childNodes);
-	$weatherAdvice.childNodes[0].classList.add("disabled");
+	$weatherAdvice.childNodes[1].classList.add("disabled");
 
 	$weatherAdvice.textContent = "No estás conectado a internet, inténtalo más tarde";
 	$weatherAdvice.classList.add("no-connection");
@@ -159,4 +160,23 @@ w.addEventListener("offline", (e) => {
 
 w.addEventListener("online", (e) => {
 	loadWeather();
+});
+d.addEventListener("click", (e) => {
+	if (e.target.matches("#feedback-btn") || e.target.matches("#feedback-btn *")) {
+		if (!isModalActive) {
+			$modalFeedback.classList.add("feedback-container-active");
+			setTimeout(() => {
+				$feedBtn.classList.add("btn-back");
+				$feedBtn.textContent = "arrow_back";
+			}, 700);
+			isModalActive = true;
+		} else {
+			$modalFeedback.classList.remove("feedback-container-active");
+			setTimeout(() => {
+				$feedBtn.classList.remove("btn-back");
+				$feedBtn.textContent = "chat";
+			}, 700);
+			isModalActive = false;
+		}
+	}
 });

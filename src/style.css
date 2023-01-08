@@ -13,9 +13,12 @@
 	--night-box-bg: hsl(207, 97%, 10%);
 
 	--max-box-size: 700px;
+	--label-color: hsl(0, 0%, 40%);
 	--main-font: "nunito", sans-serif;
 	--border-radius: 12px;
 	--inputs-height: 40px;
+	--border-color: hsl(0, 0%, 80%);
+	--main-border: 1px solid var(--border-color);
 }
 * {
 	margin: 0;
@@ -172,6 +175,88 @@ small {
 	left: 0;
 	display: flex;
 	align-items: center;
+}
+.btn {
+	background-color: var(--main-fg);
+	color: var(--main-bg);
+	cursor: pointer;
+	transition: background-color, 0.3s ease-in-out;
+}
+form .btn:hover {
+	background-color: var(--main-bg);
+	color: var(--main-fg);
+}
+.btn-back {
+	background-color: var(--main-bg);
+	color: var(--main-fg);
+}
+.btn-rounded {
+	font-size: 28px;
+	padding: 16px;
+	border-radius: 50%;
+}
+.btn-fixed {
+	position: fixed;
+	bottom: 4vh;
+	right: 4vh;
+	z-index: 999;
+}
+.feedback-container {
+	background-color: var(--main-fg);
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	display: flex;
+	align-items: center;
+	transition-property: opacity, transform;
+	transition: 0.7s linear;
+	transform: translateX(200%);
+	opacity: 0;
+}
+.feedback-container-active {
+	transform: translateX(0);
+	opacity: 1;
+}
+.feedback-content {
+	width: 100%;
+	max-width: 400px;
+	background-color: var(--main-fg);
+	margin: 16px auto;
+	padding: 32px;
+	border-radius: var(--border-radius);
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+}
+.feedback-content h2 {
+	color: var(--main-bg);
+	margin: 6px 0;
+}
+.feedback-content :is(input, textarea) {
+	width: 100%;
+	border: var(--main-border);
+	border-radius: var(--border-radius);
+	padding: 8px;
+	margin: 4px 0;
+	height: 40px;
+	color: var(--label-color);
+}
+.feedback-content textarea {
+	height: auto;
+}
+.feedback-content small {
+	color: var(--label-color);
+	margin-top: 12px;
+}
+.feedback-content button {
+	width: 100%;
+	border: 1px solid var(--main-bg);
+	border-radius: var(--border-radius);
+	padding: 8px;
+	margin: 4px 0;
+	height: 40px;
 }
 footer {
 	display: none;
