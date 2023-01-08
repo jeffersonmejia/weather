@@ -171,9 +171,9 @@ footer {
 .footer-active {
 	display: block;
 }
-@media screen and (max-height: 667px) and (max-width: 400px) {
-	body {
-		justify-content: baseline;
+@media screen and (max-height: 667px) and (max-width: 376px) {
+	body.midday-bg {
+		justify-content: flex-start;
 	}
 }
 @media screen and (min-width: 1080px) and (min-height: 800px) {
