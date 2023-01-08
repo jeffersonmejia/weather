@@ -2,6 +2,7 @@ import WEATHER_KEY from "./helpers/keys.js";
 import unixConverter from "./helpers/unix_converter.js";
 const d = document,
 	n = navigator,
+	w = window,
 	$loader = d.getElementById("loader"),
 	$appTitle = d.getElementById("app-title"),
 	$weatherData = d.getElementById("weather-data"),
@@ -26,7 +27,9 @@ const d = document,
 	$footer = d.getElementById("footer"),
 	$main = d.getElementById("main-layout"),
 	$cloudContainer = d.createElement("div");
-let MAX_CLOUDS = 9;
+
+let MAX_CLOUDS = 9,
+	isOffline = false;
 
 const loadClouds = () => {
 	for (let i = 0; i < MAX_CLOUDS; i++) {
@@ -138,4 +141,22 @@ d.addEventListener(
 );
 d.addEventListener("DOMContentLoaded", (e) => {
 	changeSky();
+});
+w.addEventListener("offline", (e) => {
+	$appTitle.classList.remove("current-city");
+	$appTitle.textContent = `Weather App`;
+	console.log($weatherAdvice.childNodes);
+	$weatherAdvice.childNodes[0].classList.add("disabled");
+
+	$weatherAdvice.textContent = "No estás conectado a internet, inténtalo más tarde";
+	$weatherAdvice.classList.add("no-connection");
+	$weatherAdvice.classList.remove("disabled");
+	$weatherData.classList.add("disabled");
+	$cloudContainer.classList.add("disabled");
+
+	$footer.classList.remove("footer-active");
+});
+
+w.addEventListener("online", (e) => {
+	loadWeather();
 });
