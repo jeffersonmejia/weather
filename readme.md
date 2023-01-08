@@ -27,7 +27,7 @@
 ---
 
 - Today panel 📊
-  - Latitud & longitud 🌎
+  - Current city 🌎
   - how sky currently is it ⛅
   - Feels like 🌡️
   - Humidity 🌧️
