@@ -172,7 +172,7 @@ footer {
 	display: block;
 }
 @media screen and (max-height: 667px) and (max-width: 376px) {
-	body.midday-bg {
+	.baseline-layout {
 		justify-content: flex-start;
 	}
 }

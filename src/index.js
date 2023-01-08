@@ -82,10 +82,12 @@ const getWeather = async (lat, lon) => {
 const loadWeather = async (e) => {
 	const getUserPosition = async (pos) => {
 		let lat, lon;
-		lat = pos.coords.latitude;
-		lon = pos.coords.longitude;
+		lat = pos.coords.latitude || "-0.1865944";
+		lon = pos.coords.longitude || "-78.4305382";
 		let weather = await getWeather(lat, lon);
 		loadClouds();
+		$body.classList.add("baseline-layout");
+
 		weather.sys.sunrise = unixConverter(weather.sys.sunrise);
 		weather.sys.sunset = unixConverter(weather.sys.sunset);
 		weather.weather[0].main =
@@ -109,10 +111,6 @@ const loadWeather = async (e) => {
 		$windSpeed.innerHTML = `${weather.wind.speed} mph`;
 		$footer.classList.add("footer-active");
 		$skyBG.forEach((el) => (el.src = "./src/assets/cloud.png"));
-		//delete later
-		let aux = d.createElement("small");
-		aux.textContent = `width: ${window.innerWidth} | height:${window.innerHeight}`;
-		$footer.appendChild(aux);
 	};
 	const handleErrors = (error) => {
 		$loader.classList.add("disabled");
