@@ -188,9 +188,15 @@
 				<input type="email" placeholder="email" name="email" required />
 				<select>
 					<option>Selecciona el motivo</option>
-					<option>Reportar un problema</option>
-					<option>Sugerencias</option>
+					<option class="feedback-subject">Reportar un problema</option>
+					<option class="feedback-subject">Sugerencias</option>
 				</select>
+				<input
+					type="hidden"
+					name="_subject"
+					value="New submission!"
+					id="feedback-subject-API"
+				/>
 				<small>Describe brevemente tu opinión</small>
 				<textarea
 					name=""
@@ -199,6 +205,7 @@
 					rows="6"
 					placeholder="Escribe un mensaje..."
 				></textarea>
+				<input type="hidden" name="_captcha" value="false" />
 				<button class="btn" id="send-btn">Enviar</button>
 			</form>
 		</div>

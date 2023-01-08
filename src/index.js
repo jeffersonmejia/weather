@@ -26,7 +26,8 @@ const d = document,
 	$main = d.getElementById("main-layout"),
 	$cloudContainer = d.createElement("div"),
 	$feedBtn = d.getElementById("feedback-btn"),
-	$modalFeedback = d.querySelector(".feedback-container");
+	$modalFeedback = d.querySelector(".feedback-container"),
+	$feedbackSubject = d.getElementById("feedback-subject-API");
 
 let MAX_CLOUDS = 9,
 	isOffline = false,
@@ -57,11 +58,11 @@ const changeSky = () => {
 		$body.classList.add("midday-bg");
 		$weatherBoxes.forEach((el) => el.classList.add("midday-box-bg"));
 	}
-	if (hours > 18 && hours < 19) {
+	if (hours >= 18 && hours < 19) {
 		$body.classList.add("afternoon-bg");
 		$weatherBoxes.forEach((el) => el.classList.add("afternoon-box-bg"));
 	}
-	if (hours > 19) {
+	if (hours >= 19) {
 		$body.classList.add("night-bg");
 		$audioBG.src = "./src/assets/night-audio.mp3";
 		$audioBG.autoplay = true;
@@ -126,7 +127,6 @@ const loadWeather = async (e) => {
 	};
 	navigator.geolocation.getCurrentPosition(getUserPosition, handleErrors);
 };
-
 d.addEventListener("DOMContentLoaded", loadWeather);
 d.addEventListener(
 	"touchstart,",
@@ -179,4 +179,10 @@ d.addEventListener("click", (e) => {
 			isModalActive = false;
 		}
 	}
+	if (e.target.matches(".feedback-subject")) {
+		console.log("hi");
+		console.log($feedbackSubject, e.target.value);
+		$feedbackSubject.value = e.target.value;
+	}
 });
+console.log(w.history);
