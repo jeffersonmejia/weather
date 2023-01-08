@@ -170,9 +170,9 @@ footer {
 .footer-active {
 	display: block;
 }
-@media screen and (min-width: 768px) {
+@media screen and (max-height: 667px) {
 	body {
-		justify-content: center;
+		justify-content: baseline;
 	}
 }
 @media screen and (min-width: 1080px) and (min-height: 800px) {
