@@ -171,7 +171,7 @@ footer {
 .footer-active {
 	display: block;
 }
-@media screen and (max-height: 667px) and (max-width: 380px) {
+@media screen and (max-height: 667px) and (max-width: 400px) {
 	body {
 		justify-content: baseline;
 	}
