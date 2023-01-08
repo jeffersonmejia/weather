@@ -31,7 +31,6 @@ body {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	justify-content: center;
 	font-family: var(--main-font);
 	color: var(--main-fg);
 }
@@ -39,6 +38,7 @@ body {
 main {
 	width: 80%;
 	max-width: 700px;
+	margin-top: 20px;
 }
 select {
 	border: none;
@@ -169,6 +169,11 @@ footer {
 }
 .footer-active {
 	display: block;
+}
+@media screen and (min-width: 768px) {
+	body {
+		justify-content: center;
+	}
 }
 @media screen and (min-width: 1080px) and (min-height: 800px) {
 	.weather-data {
