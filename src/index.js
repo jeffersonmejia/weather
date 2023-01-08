@@ -109,6 +109,10 @@ const loadWeather = async (e) => {
 		$windSpeed.innerHTML = `${weather.wind.speed} mph`;
 		$footer.classList.add("footer-active");
 		$skyBG.forEach((el) => (el.src = "./src/assets/cloud.png"));
+		//delete later
+		let aux = d.createElement("small");
+		aux.textContent = `width: ${window.innerWidth} | height:${window.innerHeight}`;
+		$footer.appendChild(aux);
 	};
 	const handleErrors = (error) => {
 		$loader.classList.add("disabled");
