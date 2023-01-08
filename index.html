@@ -179,10 +179,18 @@
 			</span>
 		</main>
 		<div class="feedback-container">
-			<form class="feedback-content">
+			<form
+				class="feedback-content"
+				action="https://formsubmit.co/jeffersonmejiach01@gmail.com"
+				method="POST"
+			>
 				<h2>Feedback</h2>
-				<input type="text" placeholder="Nombre" />
-				<input type="text" placeholder="Apellido" />
+				<input type="email" placeholder="email" name="email" required />
+				<select>
+					<option>Selecciona el motivo</option>
+					<option>Reportar un problema</option>
+					<option>Sugerencias</option>
+				</select>
 				<small>Describe brevemente tu opinión</small>
 				<textarea
 					name=""
