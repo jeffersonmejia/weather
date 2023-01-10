@@ -11,6 +11,12 @@
 	--afternoon-box-bg: hsl(34, 100%, 60%);
 	--night-bg: hsl(207, 97%, 0%);
 	--night-box-bg: hsl(207, 97%, 10%);
+	--dark-bg: hsl(0, 1%, 6%);
+	--dark-fg: hsl(0, 1%, 64%);
+	--dark-box-bg: hsl(0, 1%, 12%);
+	--dark-border: 1px solid hsl(0, 1%, 20%);
+	--dark-btn: rgba(0, 140, 255, 0.2);
+	--dark-btn-hover: rgba(0, 140, 255, 0.3);
 
 	--max-box-size: 700px;
 	--label-color: hsl(0, 0%, 40%);
@@ -187,6 +193,10 @@ form .btn:hover {
 	background-color: var(--main-bg);
 	color: var(--main-fg);
 }
+.btn-dark {
+	background-color: var(--main-bg);
+	color: var(--main-fg);
+}
 .btn-back {
 	background-color: var(--main-bg);
 	color: var(--main-fg);
@@ -263,11 +273,38 @@ form .btn:hover {
 }
 .feedback-content button {
 	width: 100%;
-	border: 1px solid var(--main-bg);
+	background-color: var(--main-bg);
+	color: var(--main-fg);
+	border: none;
 	border-radius: var(--border-radius);
 	padding: 8px;
 	margin: 4px 0;
 	height: 40px;
+}
+.dark-bg {
+	background-color: var(--dark-bg);
+}
+.dark-bg form {
+	background-color: var(--dark-box-bg);
+	border: var(--dark-border);
+}
+.dark-bg :is(input, select, textarea) {
+	background-color: var(--dark-bg);
+	border: var(--dark-border);
+	color: var(--dark-fg);
+}
+.dark-bg h2 {
+	color: var(--dark-fg);
+}
+.dark-bg button,
+.dark-btn {
+	background-color: var(--dark-btn);
+	color: var(--dark-fg);
+}
+@media (hover: hover) {
+	.dark-bg .dark-btn:hover {
+		background-color: var(--dark-btn-hover);
+	}
 }
 footer {
 	display: none;
