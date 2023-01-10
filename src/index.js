@@ -53,9 +53,6 @@ const changeSky = () => {
 		$audioBG.play();
 		$audioBG.loop = true;
 		$weatherBoxes.forEach((el) => el.classList.add("morning-box-bg"));
-		$modalFeedback.classList.add("dark-bg");
-		$feedBtn.classList.add("dark-btn");
-		$modalFeedback.childNodes[1].childNodes[15].classList.add("dark-btn");
 	}
 	if (hours >= 12 && hours < 18) {
 		$body.classList.add("midday-bg");
@@ -71,7 +68,9 @@ const changeSky = () => {
 		$audioBG.autoplay = true;
 		$audioBG.loop = true;
 		$weatherBoxes.forEach((el) => el.classList.add("night-box-bg"));
-		$feedBtn.classList.add("btn-dark");
+		$modalFeedback.classList.add("dark-bg");
+		$feedBtn.classList.add("dark-btn");
+		$modalFeedback.childNodes[1].childNodes[15].classList.add("dark-btn");
 	}
 };
 
