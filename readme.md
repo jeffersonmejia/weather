@@ -31,7 +31,7 @@ Learn about the weather of your current location in real time, the sky changes a
 
 4. You are ready! Go to https://localhost:5500 <img src='https://i.postimg.cc/76PGf6WB/google-chrome-logo-png-0.png' width="12"/>
 
-6. If you'd prefer access with no installation, get in [here](https://jeffersonmejia.github.io/weather-app) 💡
+6. If you'd prefer access with no installation, get in [here](https://jeffersonmejia.github.io/weather) 💡
 
 ## 3. Preview
 
