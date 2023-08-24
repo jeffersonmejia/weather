@@ -33,7 +33,7 @@ Learn about the weather of your current location in real time, the sky changes a
 
 ## 3. Preview
 
-<img src="https://i.postimg.cc/tCGKM1HS/main.png" width="350"/>
+<img src="https://i.postimg.cc/RF14k5Qw/main.png" width="350"/>
 
 ## 4. Author
 
