@@ -41,7 +41,7 @@ Learn about the weather of your current location in real time, the sky changes a
 
 Jefferson Mejía - Eng. Systems, Web developer </>
 
-## 5 Credits
+## 5. Credits
 
 **API**
 
