@@ -3,6 +3,7 @@ import unixConverter from './helpers/unix_converter.js'
 const d = document,
 	n = navigator,
 	w = window,
+	$main = d.querySelector('main'),
 	$loader = d.getElementById('loader'),
 	$appTitle = d.getElementById('app-title'),
 	$weatherTemperature = d.querySelector('.current-temperature'),
@@ -116,8 +117,6 @@ async function getUserPosition(pos) {
 	let lat = await pos.coords.latitude,
 		lon = await pos.coords.longitude
 	let weather = await getWeather(lat, lon)
-	$getLocationMessage.classList.add('hidden')
-	$body.classList.add('baseline-layout')
 
 	weather.sys.sunrise = unixConverter(weather.sys.sunrise)
 	weather.sys.sunset = unixConverter(weather.sys.sunset)
@@ -146,10 +145,15 @@ async function getUserPosition(pos) {
 	$sunrise.innerHTML = weather.sys.sunrise
 	$sunset.innerHTML = weather.sys.sunset
 	$windSpeed.innerHTML = `${weather.wind.speed} mph`
+	$getLocationMessage.classList.add('hidden')
+	$main.style.width = '90%'
+	$weatherData.style.opacity = 0
 	$footer.style.opacity = 0
 	$footer.classList.remove('hidden')
 	setTimeout(() => {
+		$weatherData.style.opacity = 1
 		$footer.style.opacity = 1
+		$body.classList.add('baseline-layout')
 	}, 300)
 }
 
