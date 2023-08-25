@@ -5,6 +5,7 @@ const d = document,
 	w = window,
 	$loader = d.getElementById('loader'),
 	$appTitle = d.getElementById('app-title'),
+	$weatherTemperature = d.querySelector('.current-temperature'),
 	$weatherData = d.getElementById('weather-data'),
 	$weatherAdvice = d.getElementById('weather-advice'),
 	$sky = d.getElementById('sky'),
@@ -21,7 +22,8 @@ const d = document,
 	$body = d.getElementsByTagName('body')[0],
 	$weatherItems = d.querySelectorAll('.weather-data-content'),
 	$getLocationMessage = d.querySelector('.get-location'),
-	$footer = d.querySelector('footer')
+	$footer = d.querySelector('footer'),
+	$summaryWeather = d.querySelector('.summary-weather')
 
 function changeSky() {
 	const date = new Date(),
@@ -122,12 +124,14 @@ async function getUserPosition(pos) {
 	weather.weather[0].main = weather.weather[0].main === 'Clouds' ? 'Nublado' : 'Despejado'
 	$loader.classList.add('disabled')
 
-
-	let city = weather.main.name.split(" ")
-	if(city.length >0){
-	  city = `${city[0] ${city[1]`
+	let city = weather.name.split(' '),
+		temp = Math.round(weather.main.temp)
+	if (city.length > 0) {
+		city = `${city[0]} ${city[1]}`
 	}
-	$appTitle.textContent = `${city} ${Math.round(weather.main.temp)}°`
+	$summaryWeather.classList.add('center-summary')
+	$appTitle.textContent = `${city}`
+	$weatherTemperature.textContent = `${temp}°`
 	$appTitle.classList.add('current-city')
 	$weatherAdvice.classList.add('disabled')
 	$weatherData.classList.remove('disabled')
@@ -142,9 +146,11 @@ async function getUserPosition(pos) {
 	$sunrise.innerHTML = weather.sys.sunrise
 	$sunset.innerHTML = weather.sys.sunset
 	$windSpeed.innerHTML = `${weather.wind.speed} mph`
+	$footer.style.opacity = 0
+	$footer.classList.remove('hidden')
 	setTimeout(() => {
-		$footer.classList.remove('hidden')
-	}, 3500)
+		$footer.style.opacity = 1
+	}, 300)
 }
 
 async function loadWeather() {

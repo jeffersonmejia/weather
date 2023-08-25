@@ -89,11 +89,25 @@ h1 {
 }
 .current-city {
 	text-align: center;
-	padding: 12px 0;
 	width: 100%;
 	margin: auto;
+	font-size: 1.5rem;
+}
+
+.current-temperature {
+	font-size: 3rem;
+}
+.current-city,
+.current-temperature {
+	font-weight: 400;
+}
+.center-summary {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 	max-width: 400px;
-	font-size: 24px;
+	margin: 0 auto 16px auto;
+	gap: 8px;
 }
 .weather-advice {
 	margin: 4px 0;
@@ -139,6 +153,7 @@ small {
 	transition: padding 0.3s linear;
 	border-radius: var(--border-radius);
 }
+
 .weather-data-content:last-child {
 	grid-column: 1/-1;
 	align-items: center;
@@ -318,6 +333,7 @@ footer {
 	justify-content: space-between;
 	padding: 2rem;
 	gap: 4px;
+	transition: opacity 0.3s ease-in-out;
 }
 footer a {
 	text-decoration: none;
@@ -347,14 +363,14 @@ footer .separator {
 	}
 }
 @media screen and (min-width: 800px) {
-	.current-city {
-		font-size: 32px;
-	}
 	footer {
 		flex-direction: row;
 		align-items: center;
 		gap: 0;
 		padding: 2rem 0;
+	}
+	.current-city {
+		font-size: 2rem;
 	}
 }
 @media screen and (min-width: 1080px) and (min-height: 800px) {

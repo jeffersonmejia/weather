@@ -22,7 +22,10 @@
 	</head>
 	<body>
 		<main id="main-layout">
-			<h1 id="app-title">Weather App</h1>
+			<hgroup class="summary-weather">
+				<h1 id="app-title">Weather App</h1>
+				<h2 class="current-temperature"></h2>
+			</hgroup>
 			<section>
 				<form id="form-cities" class="form">
 					<small class="weather-advice" id="weather-advice"
@@ -111,7 +114,7 @@
 							<span class="material-symbols-outlined weather-data-icon">
 								<small>thermostat</small>
 							</span>
-							<h5>Temperatura mín.</h5>
+							<h5>Temp. mínima</h5>
 						</div>
 						<div class="weather-data-details">
 							<small id="min-temperature">--</small>
@@ -123,7 +126,7 @@
 							<span class="material-symbols-outlined weather-data-icon">
 								<small>thermostat</small>
 							</span>
-							<h5>Temperatura máx.</h5>
+							<h5>Temp. máxima</h5>
 						</div>
 						<div class="weather-data-details">
 							<small id="max-temperature">--</small>
