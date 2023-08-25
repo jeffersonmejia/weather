@@ -122,7 +122,12 @@ async function getUserPosition(pos) {
 	weather.weather[0].main = weather.weather[0].main === 'Clouds' ? 'Nublado' : 'Despejado'
 	$loader.classList.add('disabled')
 
-	$appTitle.textContent = `${weather.name} ${Math.round(weather.main.temp)}°`
+
+	let city = weather.name.split(" ")
+	if(city.length >0){
+	  city = `${city[0] ${city[1]`
+	}
+	$appTitle.textContent = `${city} ${Math.round(weather.main.temp)}°`
 	$appTitle.classList.add('current-city')
 	$weatherAdvice.classList.add('disabled')
 	$weatherData.classList.remove('disabled')
