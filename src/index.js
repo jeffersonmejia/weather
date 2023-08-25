@@ -115,6 +115,7 @@ async function getUserPosition(pos) {
 	let lat = await pos.coords.latitude,
 		lon = await pos.coords.longitude
 	let weather = await getWeather(lat, lon)
+	$getLocationMessage.classList.add('hidden')
 	$body.classList.add('baseline-layout')
 
 	weather.sys.sunrise = unixConverter(weather.sys.sunrise)
