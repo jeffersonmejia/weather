@@ -123,7 +123,7 @@ async function getUserPosition(pos) {
 	$loader.classList.add('disabled')
 
 
-	let city = weather.name.split(" ")
+	let city = weather.main.name.split(" ")
 	if(city.length >0){
 	  city = `${city[0] ${city[1]`
 	}
