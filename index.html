@@ -170,45 +170,26 @@
 					<small>Obtenido tu dirección actual... Esto puede tomar unos segundos</small>
 				</figcaption>
 			</figure>
-			<footer id="footer">
-				<small><b>© 2023 Jefferson Mejía</b></small>
+			<footer>
+				<section class="author">
+					<a href="about.html"> Jefferson Mejía @jeffersonmejiach </a>
+				</section>
+				<ul class="links">
+					<li>
+						<a href="https://twitter.com/jeffersonmch" target="_blank">Twitter</a>
+					</li>
+					<li class="separator">
+						<span>•</span>
+					</li>
+					<li>
+						<a href="https://www.linkedin.com/in/jeffersonmejia" target="_blank"
+							>LinkedIn</a
+						>
+					</li>
+				</ul>
 			</footer>
 			<audio hidden id="audio-bg"></audio>
-			<span class="material-symbols-outlined btn btn-fixed btn-rounded" id="feedback-btn">
-				<small>chat</small>
-			</span>
 		</main>
-		<div class="feedback-container">
-			<form
-				class="feedback-content"
-				action="https://formsubmit.co/jeffersonmejiach01@gmail.com"
-				method="POST"
-			>
-				<h2>Feedback</h2>
-				<input type="email" placeholder="email" name="email" required />
-				<select>
-					<option>Selecciona el motivo</option>
-					<option class="feedback-subject">Reportar un problema</option>
-					<option class="feedback-subject">Sugerencias</option>
-				</select>
-				<input
-					type="hidden"
-					name="_subject"
-					value="New submission!"
-					id="feedback-subject-API"
-				/>
-				<small>Describe brevemente tu opinión</small>
-				<textarea
-					name=""
-					id=""
-					cols="30"
-					rows="6"
-					placeholder="Escribe un mensaje..."
-				></textarea>
-				<input type="hidden" name="_captcha" value="false" />
-				<button class="btn" id="send-btn">Enviar</button>
-			</form>
-		</div>
 		<script src="./src/index.js" type="module"></script>
 	</body>
 </html>

@@ -20,7 +20,7 @@
 
 	--max-box-size: 700px;
 	--label-color: hsl(0, 0%, 40%);
-	--main-font: "nunito", sans-serif;
+	--main-font: 'nunito', sans-serif;
 	--border-radius: 12px;
 	--inputs-height: 40px;
 	--border-color: hsl(0, 0%, 80%);
@@ -306,18 +306,45 @@ form .btn:hover {
 		background-color: var(--dark-btn-hover);
 	}
 }
+
 footer {
-	display: none;
-	text-align: center;
-	padding: 16px;
-	transition: padding 0.3s linear;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+	padding: 2rem;
+	gap: 4px;
 }
-.footer-active {
-	display: block;
+footer a {
+	text-decoration: none;
+	color: var(--text-color-gray);
+	font-size: 0.85rem;
+}
+footer a:hover {
+	text-decoration: underline;
+}
+footer .links {
+	list-style: none;
+	display: flex;
+	gap: 8px;
+}
+footer .separator {
+	font-size: 8px;
+	display: flex;
+	align-items: center;
+	color: var(--text-color-gray);
 }
 @media screen and (max-height: 667px) and (max-width: 376px) {
 	.baseline-layout {
 		justify-content: flex-start;
+	}
+}
+@media screen and (min-width: 800px) {
+	footer {
+		flex-direction: row;
+		align-items: center;
+		gap: 0;
+		padding: 2rem 0;
 	}
 }
 @media screen and (min-width: 1080px) and (min-height: 800px) {
