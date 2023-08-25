@@ -20,13 +20,10 @@ const d = document,
 	$windSpeed = d.getElementById('wind-speed'),
 	$body = d.getElementsByTagName('body')[0],
 	$weatherItems = d.querySelectorAll('.weather-data-content'),
-	$skyBG = d.querySelectorAll('.clouds-bg img'),
-	$audioBG = d.getElementById('audio-bg'),
+	$getLocationMessage = d.querySelector('.get-location'),
 	$footer = d.getElementById('footer')
 
-let isModalActive = false
-
-const changeSky = () => {
+function changeSky() {
 	const date = new Date(),
 		hours = date.getHours(),
 		isMidnight = hours >= 0 && hours < 6,
@@ -91,7 +88,7 @@ const changeSky = () => {
 	}
 }
 
-const getWeather = async (lat, lon) => {
+async function getWeather(lat, lon) {
 	try {
 		let units = 'metric'
 		const API = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=${units}&appid=${WEATHER_KEY}`
@@ -103,64 +100,54 @@ const getWeather = async (lat, lon) => {
 		console.log(`error ${error.status}`)
 	}
 }
-
-const loadWeather = async (e) => {
-	const getUserPosition = async (pos) => {
-		let lat, lon
-		lat = pos.coords.latitude || '-0.1865944'
-		lon = pos.coords.longitude || '-78.4305382'
-		let weather = await getWeather(lat, lon)
-		$body.classList.add('baseline-layout')
-
-		weather.sys.sunrise = unixConverter(weather.sys.sunrise)
-		weather.sys.sunset = unixConverter(weather.sys.sunset)
-		weather.weather[0].main =
-			weather.weather[0].main === 'Clouds' ? 'Nublado' : 'Despejado'
-
-		$loader.classList.add('disabled')
-		$appTitle.textContent = `${weather.name} ${Math.round(weather.main.temp)}°`
-		$appTitle.classList.add('current-city')
-		$weatherAdvice.classList.add('disabled')
-		$weatherData.classList.remove('disabled')
-		$sky.innerHTML = weather.weather[0].main
-		$feelsLike.innerHTML = `${weather.main.feels_like}°`
-		$humidity.innerHTML = `${weather.main.humidity}%`
-		$pressure.innerHTML = `${weather.main.pressure} inHg`
-		$seaLevel.innerHTML = `${weather.main.sea_level} m.s.n.m`
-		$temperature.innerHTML = `${weather.main.temp}°`
-		$minTemperature.innerHTML = `${weather.main.temp_max}°`
-		$maxTemperature.innerHTML = `${weather.main.temp_min}°`
-		$sunrise.innerHTML = weather.sys.sunrise
-		$sunset.innerHTML = weather.sys.sunset
-		$windSpeed.innerHTML = `${weather.wind.speed} mph`
-		$footer.classList.add('footer-active')
-		$skyBG.forEach((el) => (el.src = './src/assets/cloud.png'))
+function handleLocationError(error) {
+	$getLocationMessage.classList.add('hidden')
+	$loader.classList.add('disabled')
+	alert(`${error.message}`)
+	$weatherAdvice.textContent = 'Ha ocurrido un error'
+	if (error.message.match('permission')) {
+		$weatherAdvice.textContent += ' ,necesitas permitir el acceso a tu ubicación.'
+	} else {
+		$weatherAdvice.textContent += ', recarga la página y vuelve a intentarlo.'
 	}
-	const handleErrors = (error) => {
-		$loader.classList.add('disabled')
-		$weatherAdvice.textContent = `Ha ocurrido un error, ${
-			error.message.match('permission')
-				? 'habilita la ubicación y vuelve a intentarlo'
-				: 'vuelve más tarde.'
-		}.`
-	}
-	navigator.geolocation.getCurrentPosition(getUserPosition, handleErrors)
 }
-d.addEventListener('DOMContentLoaded', loadWeather)
-d.addEventListener(
-	'touchstart,',
-	(e) => {
-		$audioBG.play()
-		$audioBG.pause()
-		$audioBG.currentTime = 0
-		$audioBG.play()
-		$audioBG.load()
-		$audioBG.play()
-	},
-	false
-)
+async function getUserPosition(pos) {
+	let lat = await pos.coords.latitude,
+		lon = await pos.coords.longitude
+	let weather = await getWeather(lat, lon)
+	$body.classList.add('baseline-layout')
+
+	weather.sys.sunrise = unixConverter(weather.sys.sunrise)
+	weather.sys.sunset = unixConverter(weather.sys.sunset)
+	weather.weather[0].main = weather.weather[0].main === 'Clouds' ? 'Nublado' : 'Despejado'
+	$loader.classList.add('disabled')
+
+	$appTitle.textContent = `${weather.name} ${Math.round(weather.main.temp)}°`
+	$appTitle.classList.add('current-city')
+	$weatherAdvice.classList.add('disabled')
+	$weatherData.classList.remove('disabled')
+	$sky.innerHTML = weather.weather[0].main
+	$feelsLike.innerHTML = `${weather.main.feels_like}°`
+	$humidity.innerHTML = `${weather.main.humidity}%`
+	$pressure.innerHTML = `${weather.main.pressure} inHg`
+	$seaLevel.innerHTML = `${weather.main.sea_level} m.s.n.m`
+	$temperature.innerHTML = `${weather.main.temp}°`
+	$minTemperature.innerHTML = `${weather.main.temp_max}°`
+	$maxTemperature.innerHTML = `${weather.main.temp_min}°`
+	$sunrise.innerHTML = weather.sys.sunrise
+	$sunset.innerHTML = weather.sys.sunset
+	$windSpeed.innerHTML = `${weather.wind.speed} mph`
+}
+
+async function loadWeather() {
+	setTimeout(() => {
+		n.geolocation.getCurrentPosition(getUserPosition, handleLocationError)
+	}, 2000)
+}
+
 d.addEventListener('DOMContentLoaded', (e) => {
 	changeSky()
+	loadWeather()
 })
 w.addEventListener('offline', (e) => {
 	$appTitle.classList.remove('current-city')
@@ -180,28 +167,3 @@ w.addEventListener('offline', (e) => {
 w.addEventListener('online', (e) => {
 	loadWeather()
 })
-d.addEventListener('click', (e) => {
-	if (e.target.matches('#feedback-btn') || e.target.matches('#feedback-btn *')) {
-		if (!isModalActive) {
-			$modalFeedback.classList.add('feedback-container-active')
-			$feedBtn.classList.add('btn-back')
-			setTimeout(() => {
-				$feedBtn.textContent = 'arrow_back'
-			}, 700)
-			isModalActive = true
-		} else {
-			$feedBtn.classList.remove('btn-back')
-			$modalFeedback.classList.remove('feedback-container-active')
-			setTimeout(() => {
-				$feedBtn.textContent = 'chat'
-			}, 700)
-			isModalActive = false
-		}
-	}
-	if (e.target.matches('.feedback-subject')) {
-		console.log('hi')
-		console.log($feedbackSubject, e.target.value)
-		$feedbackSubject.value = e.target.value
-	}
-})
-console.log(w.history)

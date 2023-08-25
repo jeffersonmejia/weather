@@ -334,6 +334,9 @@ footer .separator {
 	align-items: center;
 	color: var(--text-color-gray);
 }
+.hidden {
+	display: none;
+}
 @media screen and (max-height: 667px) and (max-width: 376px) {
 	.baseline-layout {
 		justify-content: flex-start;

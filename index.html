@@ -28,6 +28,9 @@
 					<small class="weather-advice" id="weather-advice"
 						>Para ver el clima necesitas activar tu <u>ubicación</u>.</small
 					>
+					<small class="get-location"
+						>Obtenido tu dirección actual... Esto puede tomar unos segundos</small
+					>
 					<small id="error-details" class="error-details">error</small>
 				</form>
 				<article id="weather-data" class="weather-data disabled">
@@ -166,11 +169,8 @@
 			</section>
 			<figure class="loader" id="loader">
 				<img src="./src/assets/rings.svg" alt="loader" />
-				<figcaption>
-					<small>Obtenido tu dirección actual... Esto puede tomar unos segundos</small>
-				</figcaption>
 			</figure>
-			<footer>
+			<footer class="hidden">
 				<section class="author">
 					<a href="about.html"> Jefferson Mejía @jeffersonmejiach </a>
 				</section>
@@ -188,7 +188,6 @@
 					</li>
 				</ul>
 			</footer>
-			<audio hidden id="audio-bg"></audio>
 		</main>
 		<script src="./src/index.js" type="module"></script>
 	</body>
