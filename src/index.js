@@ -21,7 +21,7 @@ const d = document,
 	$body = d.getElementsByTagName('body')[0],
 	$weatherItems = d.querySelectorAll('.weather-data-content'),
 	$getLocationMessage = d.querySelector('.get-location'),
-	$footer = d.getElementById('footer')
+	$footer = d.querySelector('footer')
 
 function changeSky() {
 	const date = new Date(),
@@ -103,10 +103,9 @@ async function getWeather(lat, lon) {
 function handleLocationError(error) {
 	$getLocationMessage.classList.add('hidden')
 	$loader.classList.add('disabled')
-	alert(`${error.message}`)
 	$weatherAdvice.textContent = 'Ha ocurrido un error'
 	if (error.message.match('permission')) {
-		$weatherAdvice.textContent += ' ,necesitas permitir el acceso a tu ubicación.'
+		$weatherAdvice.textContent += ' , necesitas permitir el acceso a tu ubicación.'
 	} else {
 		$weatherAdvice.textContent += ', recarga la página y vuelve a intentarlo.'
 	}
@@ -138,6 +137,9 @@ async function getUserPosition(pos) {
 	$sunrise.innerHTML = weather.sys.sunrise
 	$sunset.innerHTML = weather.sys.sunset
 	$windSpeed.innerHTML = `${weather.wind.speed} mph`
+	setTimeout(() => {
+		$footer.classList.remove('hidden')
+	}, 3500)
 }
 
 async function loadWeather() {
@@ -146,9 +148,9 @@ async function loadWeather() {
 	}, 2000)
 }
 
-d.addEventListener('DOMContentLoaded', (e) => {
+d.addEventListener('DOMContentLoaded', async (e) => {
 	changeSky()
-	loadWeather()
+	await loadWeather()
 })
 w.addEventListener('offline', (e) => {
 	$appTitle.classList.remove('current-city')
@@ -161,8 +163,6 @@ w.addEventListener('offline', (e) => {
 	$weatherAdvice.classList.remove('disabled')
 	$weatherData.classList.add('disabled')
 	$cloudContainer.classList.add('disabled')
-
-	$footer.classList.remove('footer-active')
 })
 
 w.addEventListener('online', (e) => {
