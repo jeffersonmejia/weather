@@ -39,7 +39,7 @@ Learn about the weather of your current location in real time, the sky changes a
 
 ## 4. Author
 
-Jefferson Mejía - Eng. Systems, Web developer </>
+[Jefferson Mejía](https://jeffersonmejia.github.io/blog) - Eng. Systems, Web developer
 
 ## 5. Credits
 
