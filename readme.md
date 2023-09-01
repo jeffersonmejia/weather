@@ -27,7 +27,7 @@ Learn about the weather of your current location in real time, the sky changes a
    git clone https://github.com/jeffersonmejia/weather-app.git
    ```
 
-3. Turn VS code <img src='https://code.visualstudio.com/favicon.ico' width="10"/> live server on
+3. Turn on live server in VS code <img src='https://code.visualstudio.com/favicon.ico' width="10"/>
 
 4. You are ready! Go to https://localhost:5500 <img src='https://i.postimg.cc/76PGf6WB/google-chrome-logo-png-0.png' width="12"/>
 
