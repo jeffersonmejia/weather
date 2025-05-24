@@ -175,7 +175,7 @@ async function getUserPosition(pos) {
   $loader.classList.add('disabled')
   let city = weather.name.split(' '),
     temp = Math.round(weather.main.temp)
-alert(city)
+
   country = countryCodes[weather.sys.country] || weather.sys.country
   $summaryWeather.classList.add('center-summary')
   $appTitle.textContent = `${city}, ${country}`
