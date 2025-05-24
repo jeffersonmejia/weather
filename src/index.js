@@ -141,22 +141,21 @@ function handleLocationError(error) {
 }
 
 function formatTimeElapsed(unixTimestamp) {
-  const totalSeconds = Math.floor((Date.now() - unixTimestamp * 1000) / 1000)
+  const totalSeconds = Math.abs(Math.floor((Date.now() - unixTimestamp * 1000) / 1000))
 
   const days = Math.floor(totalSeconds / 86400)
   const hours = Math.floor((totalSeconds % 86400) / 3600)
   const minutes = Math.floor((totalSeconds % 3600) / 60)
   const seconds = totalSeconds % 60
-
   const parts = []
   if (days > 0) parts.push(`${days} día${days > 1 ? 's' : ''}`)
   if (hours > 0) parts.push(`${hours} hora${hours > 1 ? 's' : ''}`)
   if (minutes > 0) parts.push(`${minutes} minuto${minutes > 1 ? 's' : ''}`)
   if (seconds > 0 || parts.length === 0)
     parts.push(`${seconds} segundo${seconds !== 1 ? 's' : ''}`)
-
   return `Hace ${parts.join(', ')}`
 }
+
 
 async function getUserPosition(pos) {
   let lat = await pos.coords.latitude,
