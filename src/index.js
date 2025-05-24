@@ -143,6 +143,10 @@ function handleLocationError(error) {
 function formatTimeElapsed(unixTimestamp) {
   const totalSeconds = Math.abs(Math.floor((Date.now() - unixTimestamp * 1000) / 1000))
 
+  if (totalSeconds === 0) {
+    return "recién";
+  }
+  
   const days = Math.floor(totalSeconds / 86400)
   const hours = Math.floor((totalSeconds % 86400) / 3600)
   const minutes = Math.floor((totalSeconds % 3600) / 60)
