@@ -1,199 +1,213 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<title>Weather App</title>
-		<link rel="shortcut icon" href="./src/assets/cloud-fog.svg" type="image/x-icon" />
-		<meta
-			name="viewport"
-			content="width=device-width, initial-scale=1.0,maximum-scale=1"
-		/>
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link
-			href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600&display=swap"
-			rel="stylesheet"
-		/>
-		<link
-			rel="stylesheet"
-			href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
-		/>
-		<link rel="stylesheet" href="./src/style.css" />
-	</head>
-	<body>
-		<main id="main-layout">
-			<hgroup class="summary-weather">
-				<h1 id="app-title">Weather App</h1>
-				<h2 class="current-temperature"></h2>
-			</hgroup>
-			<section>
-				<form id="form-cities" class="form">
-					<small class="weather-advice" id="weather-advice"
-						>Para ver el clima necesitas activar tu <u>ubicación</u>.</small
-					>
-					<small class="get-location"
-						>Obtenido tu dirección actual... Esto puede tomar unos segundos</small
-					>
-					<small id="error-details" class="error-details">error</small>
-				</form>
-				<article id="weather-data" class="weather-data disabled">
-					<div class="weather-data-content">
-						<div class="weather-title">
-							<span class="material-symbols-outlined weather-data-icon">
-								<small>cloud</small>
-							</span>
-							<h5>Cielo</h5>
-						</div>
-						<div class="weather-data-details">
-							<small id="sky">--</small>
-						</div>
-					</div>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Weather App</title>
+    <link
+      rel="shortcut icon"
+      href="./src/assets/favicon.png"
+      type="image/x-icon"
+    />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0,maximum-scale=1"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <link rel="stylesheet" href="./src/style.css" />
+  </head>
+  <body>
+    <main id="main-layout">
+      <div class="summary-weather">
+        <h1 id="app-title">Weather App</h1>
 
-					<div class="weather-data-content">
-						<div class="weather-title">
-							<span class="material-symbols-outlined weather-data-icon">
-								<small>Grain</small>
-							</span>
-							<h5>Sensacion</h5>
-						</div>
-						<div class="weather-data-details">
-							<small id="feelsLike">--</small>
-						</div>
-					</div>
+        <h2 class="current-temperature"></h2>
+      </div>
+      <section>
+        <form id="form-cities" class="form">
+          <small class="weather-advice" id="weather-advice"
+            >Para ver el clima necesitas activar tu <u>ubicación</u>.</small
+          >
+          <small class="get-location"
+            >Obtenido tu dirección actual... Esto puede tomar unos
+            segundos</small
+          >
+          <small id="error-details" class="error-details">error</small>
+        </form>
+        <article id="weather-data" class="weather-data disabled">
+          <div class="weather-data-content">
+            <div class="weather-title">
+              <span class="material-symbols-outlined weather-data-icon">
+                <small>cloud</small>
+              </span>
+              <h5>Cielo</h5>
+            </div>
+            <div class="weather-data-details">
+              <small id="sky">--</small>
+            </div>
+          </div>
 
-					<div class="weather-data-content">
-						<div class="weather-title">
-							<span class="material-symbols-outlined weather-data-icon">
-								<small>humidity_mid</small>
-							</span>
-							<h5>Humedad</h5>
-						</div>
-						<div class="weather-data-details">
-							<small id="humidity">--</small>
-						</div>
-					</div>
+          <div class="weather-data-content">
+            <div class="weather-title">
+              <span class="material-symbols-outlined weather-data-icon">
+                <small>Grain</small>
+              </span>
+              <h5>Sensacion</h5>
+            </div>
+            <div class="weather-data-details">
+              <small id="feelsLike">--</small>
+            </div>
+          </div>
 
-					<div class="weather-data-content">
-						<div class="weather-title">
-							<span class="material-symbols-outlined weather-data-icon">
-								<small>air</small>
-							</span>
-							<h5>Presión</h5>
-						</div>
-						<div class="weather-data-details">
-							<small id="pressure">--</small>
-						</div>
-					</div>
+          <div class="weather-data-content">
+            <div class="weather-title">
+              <span class="material-symbols-outlined weather-data-icon">
+                <small>humidity_mid</small>
+              </span>
+              <h5>Humedad</h5>
+            </div>
+            <div class="weather-data-details">
+              <small id="humidity">--</small>
+            </div>
+          </div>
 
-					<div class="weather-data-content">
-						<div class="weather-title">
-							<span class="material-symbols-outlined weather-data-icon">
-								<small>waves</small>
-							</span>
-							<h5>Nivel del mar</h5>
-						</div>
-						<div class="weather-data-details">
-							<small id="sea-level">--</small>
-						</div>
-					</div>
+          <div class="weather-data-content">
+            <div class="weather-title">
+              <span class="material-symbols-outlined weather-data-icon">
+                <small>air</small>
+              </span>
+              <h5>Presión</h5>
+            </div>
+            <div class="weather-data-details">
+              <small id="pressure">--</small>
+            </div>
+          </div>
 
-					<div class="weather-data-content">
-						<div class="weather-title">
-							<span class="material-symbols-outlined weather-data-icon">
-								<small>thermometer</small>
-							</span>
-							<h5>Temperatura</h5>
-						</div>
-						<div class="weather-data-details">
-							<small id="temperature">--</small>
-						</div>
-					</div>
+          <div class="weather-data-content">
+            <div class="weather-title">
+              <span class="material-symbols-outlined weather-data-icon">
+                <small>waves</small>
+              </span>
+              <h5>Nivel del mar</h5>
+            </div>
+            <div class="weather-data-details">
+              <small id="sea-level">--</small>
+            </div>
+          </div>
 
-					<div class="weather-data-content">
-						<div class="weather-title">
-							<span class="material-symbols-outlined weather-data-icon">
-								<small>thermostat</small>
-							</span>
-							<h5>Temp. mínima</h5>
-						</div>
-						<div class="weather-data-details">
-							<small id="min-temperature">--</small>
-						</div>
-					</div>
+          <div class="weather-data-content">
+            <div class="weather-title">
+              <span class="material-symbols-outlined weather-data-icon">
+                <small>thermometer</small>
+              </span>
+              <h5>Temperatura</h5>
+            </div>
+            <div class="weather-data-details">
+              <small id="temperature">--</small>
+            </div>
+          </div>
 
-					<div class="weather-data-content">
-						<div class="weather-title">
-							<span class="material-symbols-outlined weather-data-icon">
-								<small>thermostat</small>
-							</span>
-							<h5>Temp. máxima</h5>
-						</div>
-						<div class="weather-data-details">
-							<small id="max-temperature">--</small>
-						</div>
-					</div>
+          <div class="weather-data-content">
+            <div class="weather-title">
+              <span class="material-symbols-outlined weather-data-icon">
+                <small>thermostat</small>
+              </span>
+              <h5>Temp. mínima</h5>
+            </div>
+            <div class="weather-data-details">
+              <small id="min-temperature">--</small>
+            </div>
+          </div>
 
-					<div class="weather-data-content">
-						<div class="weather-title">
-							<span class="material-symbols-outlined weather-data-icon">
-								<small>sunny</small>
-							</span>
-							<h5>Amanecer</h5>
-						</div>
-						<div class="weather-data-details">
-							<small id="sunrise">--</small>
-						</div>
-					</div>
+          <div class="weather-data-content">
+            <div class="weather-title">
+              <span class="material-symbols-outlined weather-data-icon">
+                <small>thermostat</small>
+              </span>
+              <h5>Temp. máxima</h5>
+            </div>
+            <div class="weather-data-details">
+              <small id="max-temperature">--</small>
+            </div>
+          </div>
 
-					<div class="weather-data-content">
-						<div class="weather-title">
-							<span class="material-symbols-outlined weather-data-icon">
-								<small>nights_stay</small>
-							</span>
-							<h5>Atardecer</h5>
-						</div>
-						<div class="weather-data-details">
-							<small id="sunset">--</small>
-						</div>
-					</div>
+          <div class="weather-data-content">
+            <div class="weather-title">
+              <span class="material-symbols-outlined weather-data-icon">
+                <small>sunny</small>
+              </span>
+              <h5>Amanecer</h5>
+            </div>
+            <div class="weather-data-details">
+              <small id="sunrise">--</small>
+            </div>
+          </div>
 
-					<div class="weather-data-content">
-						<div class="weather-title">
-							<span class="material-symbols-outlined weather-data-icon">
-								<small>cloud</small>
-							</span>
-							<h5>Velocidad del viento</h5>
-						</div>
-						<div class="weather-data-details">
-							<small id="wind-speed">--</small>
-						</div>
-					</div>
-				</article>
-			</section>
-			<figure class="loader" id="loader">
-				<img src="./src/assets/rings.svg" alt="loader" />
-			</figure>
-			<footer class="hidden">
-				<section class="author">
-					<a href="https://jeffersonmejia.github.io/portfolio-app/" target="blank">
-						Jefferson Mejía @jeffersonmejiach
-					</a>
-				</section>
-				<ul class="links">
-					<li>
-						<a href="https://twitter.com/jeffersonmch" target="_blank">Twitter</a>
-					</li>
-					<li class="separator">
-						<span>•</span>
-					</li>
-					<li>
-						<a href="https://www.linkedin.com/in/jeffersonmejia" target="_blank"
-							>LinkedIn</a
-						>
-					</li>
-				</ul>
-			</footer>
-		</main>
-		<script src="./src/index.js" type="module"></script>
-	</body>
+          <div class="weather-data-content">
+            <div class="weather-title">
+              <span class="material-symbols-outlined weather-data-icon">
+                <small>nights_stay</small>
+              </span>
+              <h5>Atardecer</h5>
+            </div>
+            <div class="weather-data-details">
+              <small id="sunset">--</small>
+            </div>
+          </div>
+
+          <div class="weather-data-content">
+            <div class="weather-title">
+              <span class="material-symbols-outlined weather-data-icon">
+                <small>cloud</small>
+              </span>
+              <h5>Velocidad del viento</h5>
+            </div>
+            <div class="weather-data-details">
+              <small id="wind-speed">--</small>
+            </div>
+          </div>
+        </article>
+      </section>
+      <figure class="loader" id="loader">
+        <img src="./src/assets/rings.svg" alt="loader" />
+      </figure>
+      <small class="hidden-last-update last-update-box"
+        ><b>Útima actualización:</b> <i id="last-update"></i
+      ></small>
+      <footer class="hidden">
+        <section class="author">
+          <a
+            href="https://jeffersonmejia.github.io/portfolio-app/"
+            target="blank"
+          >
+            Jefferson Mejía @jeffersonmejiach
+          </a>
+        </section>
+        <ul class="links">
+          <li>
+            <a href="https://github.com/jeffersonmejia" target="_blank"
+              >GitHub</a
+            >
+          </li>
+          <li class="separator">
+            <span>•</span>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/in/jeffersonmejia" target="_blank"
+              >LinkedIn</a
+            >
+          </li>
+        </ul>
+      </footer>
+    </main>
+    <script src="./src/index.js" type="module"></script>
+  </body>
 </html>
