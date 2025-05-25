@@ -141,12 +141,14 @@ function handleLocationError(error) {
 }
 
 function formatTimeElapsed(unixTimestamp) {
-  const totalSeconds = Math.abs(Math.floor((Date.now() - unixTimestamp * 1000) / 1000))
+  const totalSeconds = Math.abs(
+    Math.floor((Date.now() - unixTimestamp * 1000) / 1000)
+  )
 
   if (totalSeconds === 0) {
-    return "recién";
+    return 'recién'
   }
-  
+
   const days = Math.floor(totalSeconds / 86400)
   const hours = Math.floor((totalSeconds % 86400) / 3600)
   const minutes = Math.floor((totalSeconds % 3600) / 60)
@@ -160,7 +162,6 @@ function formatTimeElapsed(unixTimestamp) {
   return `Hace ${parts.join(', ')}`
 }
 
-
 async function getUserPosition(pos) {
   let lat = await pos.coords.latitude,
     lon = await pos.coords.longitude,
@@ -173,9 +174,9 @@ async function getUserPosition(pos) {
   weather.weather[0].main =
     weather.weather[0].main === 'Clouds' ? 'Nublado' : 'Despejado'
   $loader.classList.add('disabled')
-  let city = weather.name.split(' '),
+  let city = weather.name,
     temp = Math.round(weather.main.temp)
-
+  console.log(weather.name)
   country = countryCodes[weather.sys.country] || weather.sys.country
   $summaryWeather.classList.add('center-summary')
   $appTitle.textContent = `${city}, ${country}`
