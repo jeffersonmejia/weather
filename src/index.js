@@ -146,7 +146,7 @@ function formatTimeElapsed(unixTimestamp) {
   )
 
   if (totalSeconds === 0) {
-    return 'recién'
+    return 'Recién'
   }
 
   const days = Math.floor(totalSeconds / 86400)
